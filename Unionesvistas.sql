@@ -47,3 +47,18 @@ INNER JOIN Categories c
 ON p.CategoryID = c.CategoryID;
 
 SELECT Producto, Categoria, NumeroDeOrden FROM ListadoProductos
+
+
+--Modificacion de el ejercicio anteriro con un FULL JOIN 
+ALTER VIEW ListadoProductos
+AS
+
+SELECT 
+	p.ProductName Productos, c.CategoryName Categorias, o.OrderID NumeroDeOrden
+FROM Products p
+FULL JOIN [Order Details] o 
+ON p.ProductID = o.ProductID
+INNER JOIN Categories c
+ON p.CategoryID = c.CategoryID;
+
+SELECT Productos, Categorias, NumeroDeOrden FROM ListadoProductos
